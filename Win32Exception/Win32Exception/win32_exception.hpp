@@ -10,7 +10,7 @@ namespace win32
     {
     private:
         HRESULT err_code;
-        char * message = nullptr;
+        mutable char * message = nullptr;
     public:
         win32_exception() : win32_exception(GetLastError()) {}
         win32_exception(HRESULT hr) : err_code(hr) {}
@@ -45,7 +45,7 @@ namespace win32
                     NULL,
                     err_code,
                     MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
-                    (LPSTR)&message,
+                    reinterpret_cast<LPSTR>(&message),
                     0, NULL);
             }
             return message;

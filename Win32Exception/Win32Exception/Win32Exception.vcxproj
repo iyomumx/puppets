@@ -21,6 +21,9 @@
   <ItemGroup>
     <ClInclude Include="win32_exception.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dummy.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{D68FF547-B897-4DA2-8941-9A53076931A9}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
