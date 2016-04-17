@@ -26,8 +26,11 @@ namespace win32
         }
         win32_exception& operator=(const win32_exception& other)
         {
-            this->~win32_exception();
-            new (this) win32_exception(other);
+            if (&other != this)
+            {
+                this->~win32_exception();
+                new (this) win32_exception(other);
+            }
         }
         win32_exception& operator=(win32_exception&& other)
         {
